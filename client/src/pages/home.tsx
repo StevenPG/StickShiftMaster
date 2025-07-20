@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Cog, Car, Calculator, GraduationCap, Construction, Lightbulb } from "lucide-react";
-import { Link } from "wouter";
 import RPMGauge from "../components/rpm-gauge";
 import InputPanel from "../components/input-panel";
 import EducationalPanel from "../components/educational-panel";
@@ -48,12 +47,7 @@ export default function Home() {
               <h1 className="text-xl font-bold auto-navy">Manual Transmission Simulator</h1>
             </div>
             <div className="hidden md:flex items-center space-x-6">
-              <Link href="/tutorial" className="auto-navy hover:auto-orange transition-colors text-sm">
-                Tutorial
-              </Link>
-              <Link href="/learn-more" className="auto-navy hover:auto-orange transition-colors text-sm">
-                Learn More
-              </Link>
+              <span className="auto-navy text-sm">Manual Transmission Learning Tool</span>
             </div>
           </div>
         </div>
@@ -102,10 +96,7 @@ export default function Home() {
             <h3 className="text-lg font-semibold mb-2">Master Manual Transmission</h3>
             <p className="text-gray-300 text-sm mb-4">Learn stick shift driving with interactive simulations and expert guidance</p>
             <div className="flex justify-center space-x-6 text-sm">
-              <Link href="/about" className="hover:auto-orange transition-colors">About</Link>
-              <Link href="/tutorial" className="hover:auto-orange transition-colors">Tutorial</Link>
-              <Link href="/faq" className="hover:auto-orange transition-colors">FAQ</Link>
-              <Link href="/contact" className="hover:auto-orange transition-colors">Contact</Link>
+              <span className="text-gray-300">Interactive Manual Transmission Simulator</span>
             </div>
           </div>
         </div>
