@@ -4,6 +4,7 @@ import { Cog, Car, Calculator, GraduationCap, Construction, Lightbulb } from "lu
 import RPMGauge from "../components/rpm-gauge";
 import InputPanel from "../components/input-panel";
 import EducationalPanel from "../components/educational-panel";
+import CommonVehicles from "../components/common-vehicles";
 
 export default function Home() {
   const [gearRatios, setGearRatios] = useState({
@@ -35,6 +36,15 @@ export default function Home() {
   };
 
   const currentRPM = calculateRPM();
+
+  const handleVehicleSelect = (vehicle: any) => {
+    // Update gear ratios
+    setGearRatios(vehicle.gearRatios);
+    
+    // Update vehicle parameters
+    setAxleRatio(vehicle.axleRatio);
+    setTireDiameter(vehicle.tireDiameter);
+  };
 
   return (
     <div className="min-h-screen auto-grey">
@@ -72,11 +82,16 @@ export default function Home() {
 
           {/* RPM Gauge Display */}
           <div className="lg:col-span-5">
-            <RPMGauge
-              currentRPM={currentRPM}
-              selectedGear={selectedGear}
-              setSelectedGear={setSelectedGear}
-            />
+            {/* Common Vehicles Card */}
+            <CommonVehicles onVehicleSelect={handleVehicleSelect} />
+            
+            <div className="mt-6">
+              <RPMGauge
+                currentRPM={currentRPM}
+                selectedGear={selectedGear}
+                setSelectedGear={setSelectedGear}
+              />
+            </div>
             
             {/* Current Calculation Card */}
             <Card className="border-l-4 border-l-auto-yellow mt-6">
