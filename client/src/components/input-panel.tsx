@@ -2,7 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
-import { Cog, Car, Calculator } from "lucide-react";
+import { Cog, Car } from "lucide-react";
 
 interface GearRatios {
   first: number;
@@ -26,9 +26,6 @@ interface InputPanelProps {
   setAxleRatio: (ratio: number) => void;
   tireDiameter: number;
   setTireDiameter: (diameter: number) => void;
-  selectedGear: number;
-  currentRPM: number;
-  getCurrentGearRatio: () => number;
 }
 
 export default function InputPanel({
@@ -39,10 +36,7 @@ export default function InputPanel({
   axleRatio,
   setAxleRatio,
   tireDiameter,
-  setTireDiameter,
-  selectedGear,
-  currentRPM,
-  getCurrentGearRatio
+  setTireDiameter
 }: InputPanelProps) {
   
   const updateGearRatio = (gear: keyof GearRatios, value: number) => {
@@ -223,33 +217,6 @@ export default function InputPanel({
         </CardContent>
       </Card>
 
-      {/* Current Calculation Card */}
-      <Card className="border-l-4 border-l-auto-yellow">
-        <CardContent className="p-6">
-          <div className="flex items-center mb-4">
-            <Calculator className="auto-yellow text-xl mr-3" />
-            <h2 className="text-lg font-semibold">Current Calculation</h2>
-          </div>
-          <div className="space-y-3 text-sm">
-            <div className="flex justify-between">
-              <span>Selected Gear:</span>
-              <span className="font-semibold auto-orange">{selectedGear}th ({getCurrentGearRatio().toFixed(2)})</span>
-            </div>
-            <div className="flex justify-between">
-              <span>Formula:</span>
-              <span className="text-xs text-gray-600">[(AR × VS × TR × 336.13) / TD]</span>
-            </div>
-            <div className="pt-2 border-t">
-              <div className="text-xs text-gray-600 mb-1">
-                [({axleRatio} × {vehicleSpeed} × {getCurrentGearRatio().toFixed(2)} × 336.13) / {tireDiameter}]
-              </div>
-              <div className="text-lg font-bold auto-orange">
-                = {currentRPM.toLocaleString()} RPM
-              </div>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
     </div>
   );
 }

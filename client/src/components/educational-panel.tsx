@@ -53,59 +53,6 @@ export default function EducationalPanel() {
         </CardContent>
       </Card>
 
-      {/* Practice Scenarios */}
-      <Card>
-        <CardContent className="p-6">
-          <div className="flex items-center mb-4">
-            <Construction className="auto-orange text-xl mr-3" />
-            <h2 className="text-lg font-semibold">Practice Scenarios</h2>
-          </div>
-          <div className="space-y-3">
-            <Button
-              variant="outline"
-              className="w-full p-3 text-left bg-gray-50 hover:auto-grey border-none justify-start h-auto"
-              onClick={() => loadScenario('city')}
-            >
-              <div className="flex items-center justify-between w-full">
-                <div>
-                  <h3 className="font-medium">City Driving</h3>
-                  <p className="text-xs text-gray-600">25 mph in residential area</p>
-                </div>
-                <div className="auto-orange">→</div>
-              </div>
-            </Button>
-            
-            <Button
-              variant="outline"
-              className="w-full p-3 text-left bg-gray-50 hover:auto-grey border-none justify-start h-auto"
-              onClick={() => loadScenario('highway')}
-            >
-              <div className="flex items-center justify-between w-full">
-                <div>
-                  <h3 className="font-medium">Highway Cruising</h3>
-                  <p className="text-xs text-gray-600">65 mph on interstate</p>
-                </div>
-                <div className="auto-orange">→</div>
-              </div>
-            </Button>
-            
-            <Button
-              variant="outline"
-              className="w-full p-3 text-left bg-gray-50 hover:auto-grey border-none justify-start h-auto"
-              onClick={() => loadScenario('mountain')}
-            >
-              <div className="flex items-center justify-between w-full">
-                <div>
-                  <h3 className="font-medium">Mountain Climbing</h3>
-                  <p className="text-xs text-gray-600">35 mph uphill grade</p>
-                </div>
-                <div className="auto-orange">→</div>
-              </div>
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
-
       {/* Performance Tips */}
       <Card>
         <CardContent className="p-6">

@@ -54,10 +54,10 @@ export default function Home() {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 xl:grid-cols-12 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-9 gap-8">
           
           {/* Input Panel */}
-          <div className="xl:col-span-4">
+          <div className="lg:col-span-4">
             <InputPanel
               gearRatios={gearRatios}
               setGearRatios={setGearRatios}
@@ -67,25 +67,50 @@ export default function Home() {
               setAxleRatio={setAxleRatio}
               tireDiameter={tireDiameter}
               setTireDiameter={setTireDiameter}
-              selectedGear={selectedGear}
-              currentRPM={currentRPM}
-              getCurrentGearRatio={getCurrentGearRatio}
             />
           </div>
 
           {/* RPM Gauge Display */}
-          <div className="xl:col-span-5">
+          <div className="lg:col-span-5">
             <RPMGauge
               currentRPM={currentRPM}
               selectedGear={selectedGear}
               setSelectedGear={setSelectedGear}
             />
+            
+            {/* Current Calculation Card */}
+            <Card className="border-l-4 border-l-auto-yellow mt-6">
+              <CardContent className="p-6">
+                <div className="flex items-center mb-4">
+                  <Calculator className="auto-yellow text-xl mr-3" />
+                  <h2 className="text-lg font-semibold">Current Calculation</h2>
+                </div>
+                <div className="space-y-3 text-sm">
+                  <div className="flex justify-between">
+                    <span>Selected Gear:</span>
+                    <span className="font-semibold auto-orange">{selectedGear}th ({getCurrentGearRatio().toFixed(2)})</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Formula:</span>
+                    <span className="text-xs text-gray-600">[(AR × VS × TR × 336.13) / TD]</span>
+                  </div>
+                  <div className="pt-2 border-t">
+                    <div className="text-xs text-gray-600 mb-1">
+                      [({axleRatio} × {vehicleSpeed} × {getCurrentGearRatio().toFixed(2)} × 336.13) / {tireDiameter}]
+                    </div>
+                    <div className="text-lg font-bold auto-orange">
+                      = {currentRPM.toLocaleString()} RPM
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
+        </div>
 
-          {/* Educational Panel */}
-          <div className="xl:col-span-3">
-            <EducationalPanel />
-          </div>
+        {/* Educational Panel - Quick Lesson and Pro Tips */}
+        <div className="mt-12">
+          <EducationalPanel />
         </div>
       </main>
 

@@ -31,13 +31,13 @@ export default function RPMGauge({ currentRPM, selectedGear, setSelectedGear }: 
   const rpmColor = getRPMZoneColor(currentRPM);
 
   return (
-    <Card className="h-full flex flex-col min-h-[600px]">
-      <CardContent className="p-8 flex flex-col items-center justify-center flex-1">
-        <h2 className="text-2xl font-bold auto-navy mb-8 text-center">Engine RPM Gauge</h2>
+    <Card className="flex flex-col min-h-[400px]">
+      <CardContent className="p-6 flex flex-col items-center justify-center flex-1">
+        <h2 className="text-xl font-bold auto-navy mb-4 text-center">Engine RPM Gauge</h2>
         
         {/* RPM Gauge SVG */}
-        <div className="relative w-80 h-80 mb-8">
-          <svg width="320" height="320" viewBox="0 0 320 320" className="absolute inset-0">
+        <div className="relative w-64 h-64 mb-6">
+          <svg width="256" height="256" viewBox="0 0 320 320" className="absolute inset-0">
             {/* Outer Ring */}
             <circle
               cx="160"
