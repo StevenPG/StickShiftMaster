@@ -65,7 +65,12 @@ export default function Home() {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-9 gap-8">
-          
+
+          <div className="lg:col-span-9">
+            {/* Common Vehicles Card */}
+            <CommonVehicles onVehicleSelect={handleVehicleSelect} />
+          </div>
+
           {/* Input Panel */}
           <div className="lg:col-span-4">
             <InputPanel
@@ -82,10 +87,8 @@ export default function Home() {
 
           {/* RPM Gauge Display */}
           <div className="lg:col-span-5">
-            {/* Common Vehicles Card */}
-            <CommonVehicles onVehicleSelect={handleVehicleSelect} />
             
-            <div className="mt-6">
+            <div>
               <RPMGauge
                 currentRPM={currentRPM}
                 selectedGear={selectedGear}
@@ -124,7 +127,7 @@ export default function Home() {
         </div>
 
         {/* Educational Panel - Quick Lesson and Pro Tips */}
-        <div className="mt-12">
+        <div className="mt-8">
           <EducationalPanel />
         </div>
       </main>
@@ -133,10 +136,18 @@ export default function Home() {
       <footer className="bg-auto-navy text-white py-8 mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h3 className="text-lg font-semibold mb-2">Master Manual Transmission</h3>
-            <p className="text-gray-300 text-sm mb-4">Learn stick shift driving with interactive simulations and expert guidance</p>
+            <h3 className="text-lg font-semibold mb-2">If you really appreciate this site, feel free to</h3>
+          </div>
+          <div className={ "flex justify-center space-x-6 text-sm" + (window.innerWidth < 768 ? " mb-4" : "")}>
+            <a href="https://www.buymeacoffee.com/codingsteve" target="_blank"><img
+                src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee"
+                style={{ height: '60px', width: '217px' }}
+            /></a>
+          </div>
+          <div className="text-center">
             <div className="flex justify-center space-x-6 text-sm">
-              <span className="text-gray-300">Interactive Manual Transmission Simulator</span>
+              <span className="text-gray-300"><a href={"https://stevenpg.com"}>My Tech Blog</a></span>
+              <span className="text-gray-300"><a href={"https://substack.com/@stevenpg1"}>My Substack</a></span>
             </div>
           </div>
         </div>

@@ -56,7 +56,7 @@ export default function CommonVehicles({ onVehicleSelect }: CommonVehiclesProps)
           <div className="flex items-center">
             <Car className="auto-green text-xl mr-3" />
             <div>
-              <h2 className="text-lg font-semibold">Common Vehicles</h2>
+              <h2 className="text-lg font-semibold">Example Vehicles</h2>
               <p className="text-sm text-gray-600">Load preset vehicle configurations</p>
             </div>
           </div>
@@ -75,7 +75,7 @@ export default function CommonVehicles({ onVehicleSelect }: CommonVehiclesProps)
               <DialogHeader>
                 <DialogTitle className="flex items-center">
                   <Car className="auto-green text-xl mr-3" />
-                  Select a Common Vehicle
+                  Select an Example Vehicle
                 </DialogTitle>
               </DialogHeader>
               
