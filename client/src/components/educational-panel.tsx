@@ -11,48 +11,6 @@ export default function EducationalPanel() {
 
   return (
     <div className="space-y-6">
-      {/* Learning Module */}
-      <Card>
-        <CardContent className="p-6">
-          <div className="flex items-center mb-4">
-            <GraduationCap className="auto-blue text-xl mr-3" />
-            <h2 className="text-lg font-semibold">Quick Lesson</h2>
-          </div>
-          <div className="space-y-4 text-sm">
-            <div className="p-3 auto-grey rounded-lg">
-              <h3 className="font-semibold mb-2">Understanding RPM</h3>
-              <p className="text-gray-700">RPM (Revolutions Per Minute) measures how fast your engine crankshaft spins. Higher gears reduce RPM at the same speed for better fuel economy.</p>
-            </div>
-            <div className="p-3 bg-blue-50 rounded-lg">
-              <h3 className="font-semibold mb-2">Gear Selection Tips</h3>
-              <ul className="text-gray-700 space-y-1">
-                <li>• 1st gear: Starting and very slow speeds</li>
-                <li>• 2nd-3rd: City driving (15-35 mph)</li>
-                <li>• 4th-5th: Highway speeds (35-65 mph)</li>
-                <li>• 6th+: High-speed cruising for efficiency</li>
-              </ul>
-            </div>
-            <div className="p-3 bg-yellow-50 rounded-lg">
-              <h3 className="font-semibold mb-2">RPM Zones</h3>
-              <ul className="text-gray-700 space-y-1">
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-auto-green rounded-full mr-2"></span>
-                  Green: 1,000-3,000 RPM (Optimal)
-                </li>
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-auto-yellow rounded-full mr-2"></span>
-                  Yellow: 3,000-5,000 RPM (Caution)
-                </li>
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-auto-orange rounded-full mr-2"></span>
-                  Red: 5,000+ RPM (Avoid)
-                </li>
-              </ul>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-
       {/* Performance Tips */}
       <Card>
         <CardContent className="p-6">

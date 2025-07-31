@@ -49,20 +49,11 @@ export default function RPMGauge({ currentRPM, selectedGear, setSelectedGear }: 
   return (
     <Card className="flex flex-col min-h-[500px]">
       <CardContent className="p-6 flex flex-col items-center justify-center flex-1">
-        <h2 className="text-2xl font-bold text-slate-800 mb-6 text-center">RPM x 1000</h2>
+        <h2 className="text-2xl font-bold text-slate-800 text-center">RPM Simulation</h2>
 
         {/* RPM Gauge SVG */}
-        <div className="relative w-80 h-80 mb-6">
-          <svg width="400" height="400" viewBox="0 0 400 400" className="absolute inset-0">
-            {/* Outer gauge ring */}
-            <circle
-              cx="200"
-              cy="200"
-              r="180"
-              fill="none"
-              stroke="#1f2937"
-              strokeWidth="4"
-            />
+        <div className="relative w-80 h-80">
+          <svg width="320" height="320" viewBox="0 0 400 400" className="absolute inset-0">
 
             {/* Inner gauge ring */}
             <circle
@@ -76,36 +67,29 @@ export default function RPMGauge({ currentRPM, selectedGear, setSelectedGear }: 
             
             {/* Green Zone (0-3000 RPM) */}
             <path
-              d={createArcPath(-230, -42, 170)}
+              d={createArcPath(-230, -89, 160)}
               fill="#22c55e"
               opacity="0.3"
             />
             
-            {/* Yellow Zone (3000-5500 RPM) */}
+            {/* Yellow Zone (4000-5500 RPM) */}
             <path
-              d={createArcPath(-42, 42, 170)}
+              d={createArcPath(-89, -36, 160)}
               fill="#eab308"
               opacity="0.3"
             />
             
-            {/* Orange Zone (5500-7000 RPM) */}
+            {/* Red Zone (5500+ RPM) */}
             <path
-              d={createArcPath(42, 98, 170)}
-              fill="#f97316"
-              opacity="0.3"
-            />
-            
-            {/* Red Zone (7000+ RPM) */}
-            <path
-              d={createArcPath(98, 140, 170)}
+              d={createArcPath(-36, 53, 160)}
               fill="#ef4444"
               opacity="0.4"
             />
 
             {/* Major tick marks and numbers */}
             {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((value) => {
-              const angle = (value / 8) * 280 - 140; // 280 degrees total range
-              const radian = (angle * Math.PI) / 180;
+              const angle = (value / 8) * 270 - 220; // 280 degrees total range, start at -140
+              const radian = (angle * Math.PI) / 171.5; // Convert to radians
               const x1 = 200 + Math.cos(radian) * 160;
               const y1 = 200 + Math.sin(radian) * 160;
               const x2 = 200 + Math.cos(radian) * 140;
@@ -135,31 +119,9 @@ export default function RPMGauge({ currentRPM, selectedGear, setSelectedGear }: 
                 </g>
               );
             })}
-            
-            {/* Minor tick marks (half increments) */}
-            {[0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5].map((value) => {
-              const angle = (value / 8) * 280 - 140;
-              const radian = (angle * Math.PI) / 180;
-              const x1 = 200 + Math.cos(radian) * 160;
-              const y1 = 200 + Math.sin(radian) * 160;
-              const x2 = 200 + Math.cos(radian) * 150;
-              const y2 = 200 + Math.sin(radian) * 150;
-
-              return (
-                <line
-                  key={value}
-                  x1={x1}
-                  y1={y1}
-                  x2={x2}
-                  y2={y2}
-                  stroke="#374151"
-                  strokeWidth="2"
-                />
-              );
-            })}
 
             {/* Gauge Needle */}
-            <g transform={`rotate(${needleAngle} 200 200)`}>
+            <g transform={`rotate(${needleAngle} 202 202)`}>
               {/* Needle shadow */}
               <line
                 x1="200"
@@ -211,21 +173,15 @@ export default function RPMGauge({ currentRPM, selectedGear, setSelectedGear }: 
           
           {/* Digital RPM Display */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="bg-black/90 text-white rounded-lg px-6 py-3 mt-24 shadow-lg border border-gray-600">
+            <div className="bg-black/90 text-white rounded-lg px-4 py-2 mt-24 shadow-lg border border-gray-600">
               <div className="text-center">
-                <div className={`text-3xl font-mono font-bold ${rpmColor}`}>
+                <div className={`text-2xl font-mono font-bold ${rpmColor}`}>
                   {Math.round(currentRPM).toLocaleString()}
                 </div>
                 <div className="text-xs text-gray-300 font-mono">RPM</div>
               </div>
             </div>
           </div>
-        </div>
-        
-        {/* Current Status */}
-        <div className="text-center mb-4">
-          <div className="text-sm text-gray-600">Current Gear</div>
-          <div className="text-3xl font-bold text-slate-800">{selectedGear}</div>
         </div>
 
         {/* Gear Selector */}
@@ -253,19 +209,15 @@ export default function RPMGauge({ currentRPM, selectedGear, setSelectedGear }: 
         <div className="flex space-x-4 text-xs">
           <div className="flex items-center space-x-1">
             <div className="w-3 h-3 bg-green-400 opacity-60 rounded"></div>
-            <span>0-3k</span>
+            <span>0-4k</span>
           </div>
           <div className="flex items-center space-x-1">
             <div className="w-3 h-3 bg-yellow-400 opacity-60 rounded"></div>
-            <span>3-5.5k</span>
+            <span>4-5.5k</span>
           </div>
           <div className="flex items-center space-x-1">
-            <div className="w-3 h-3 bg-orange-400 opacity-60 rounded"></div>
-            <span>5.5-7k</span>
-          </div>
-          <div className="flex items-center space-x-1">
-            <div className="w-3 h-3 bg-red-400 opacity-60 rounded"></div>
-            <span>7k+</span>
+            <div className="w-3 h-3 bg-red-500 opacity-60 rounded"></div>
+            <span>5.5k+</span>
           </div>
         </div>
       </CardContent>
