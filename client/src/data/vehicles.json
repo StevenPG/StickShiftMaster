@@ -43,6 +43,28 @@
       "axleRatio": 3.31,
       "tireDiameter": 27.3,
       "tireSize": "235/50R18"
+    },
+    {
+      "id": "toyota-tacoma-2012",
+      "make": "Toyota",
+      "model": "Tacoma",
+      "year": "2012",
+      "transmission": "5-Speed Automatic",
+      "gearRatios": {
+        "first": 3.52,
+        "second": 2.04,
+        "third": 1.4,
+        "fourth": 1.00,
+        "fifth": 0.72,
+        "sixth": 0,
+        "seventh": 0,
+        "eighth": 0,
+        "ninth": 0,
+        "tenth": 0
+      },
+      "axleRatio": 4.3,
+      "tireDiameter": 30.5,
+      "tireSize": "245/75R16"
     }
   ]
 }
